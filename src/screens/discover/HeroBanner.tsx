@@ -11,56 +11,7 @@ function HeroBanner() {
 			alignItems='stretch'
 			alignContent='stretch'
 			h='460px'>
-			<Flex
-				bgColor='black.1'
-				padding={[10, 24]}
-				flexDirection='column'
-				textColor='white'
-				width='600px'>
-				<Text
-					fontWeight='500'
-					fontSize='40px'
-					lineHeight='48px'
-					color='white'>
-					Home for
-					<Text
-						fontWeight='500'
-						fontSize='40px'
-						lineHeight='48px'
-						color='#FFE900'
-						as='span'>
-						{' '}
-						high quality
-						{' '}
-					</Text>
-					{' '}
-					builders
-				</Text>
-
-				<Text
-					mt={2}
-					fontSize='16px'
-					lineHeight='24px'
-					fontWeight='400'
-					color='white'>
-					Invite proposals from builders. Review and fund proposals with milestones - all on chain.
-				</Text>
-
-				<Flex>
-					<Button
-						variant='primaryLarge'
-						mt={8}
-						rightIcon={<ArrowRight color='white' />}
-						onClick={
-							() => router.push({
-								pathname: '/request_proposal',
-							})
-						}>
-						Start a grant program
-					</Button>
-				</Flex>
-
-			</Flex>
+	
 			{
 				!isMobile && (
 					<Flex
@@ -69,7 +20,7 @@ function HeroBanner() {
 						justifyContent='center'>
 						<Image
 							mt={10}
-							src='/Browser Mock.svg' />
+							src='/full-logo.svg' width='500px' />
 					</Flex>
 				)
 			}

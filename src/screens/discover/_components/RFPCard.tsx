@@ -34,7 +34,7 @@ function RFPCard({ grant, chainId, role, onVisibilityUpdate, onSectionGrantsUpda
 			position='relative'
 			// boxShadow='0px 10px 18px rgba(31, 31, 51, 0.05), 0px 0px 1px rgba(31, 31, 51, 0.31);'
 			borderRadius='2px'
-			border='1px solid #E7E4DD'
+			border='1px solid green'
 			_hover={
 				{
 					border: 'none',
@@ -65,7 +65,7 @@ function RFPCard({ grant, chainId, role, onVisibilityUpdate, onSectionGrantsUpda
 				}
 			}>
 			<Flex
-				flexDirection='column'
+				flexDirection='row'
 				h='100%'
 				gap={4}>
 				<Flex
@@ -91,8 +91,8 @@ function RFPCard({ grant, chainId, role, onVisibilityUpdate, onSectionGrantsUpda
 								<Text
 									fontWeight='500'
 									fontSize='12px'
-									color='black.3'
-									bg='gray.2'
+									color='black.300'
+									bg='gray.200'
 									borderRadius='6px'
 									py={1.5}
 									px={3}
@@ -148,28 +148,27 @@ function RFPCard({ grant, chainId, role, onVisibilityUpdate, onSectionGrantsUpda
 							fontSize='18px'
 							fontWeight='500'
 							noOfLines={2}
+							whiteSpace='nowrap'
 						>
 							{grant.title}
 						</Text>
 					</Flex>
 
 					<Flex gap={1}>
-						<Text variant='subtitle'>
+						<Text whiteSpace='nowrap'variant='subtitle'>
 							{isOpen ? 'Deadline on' : 'Ended on'}
 							{' '}
 						</Text>
 						<Text
 							variant='subtitle'
 							fontWeight='500'
-							color='black.1'
+							color='black.100'
+							whiteSpace='nowrap'
 						>
 							{formattedDeadline}
 						</Text>
 					</Flex>
-
-				</Flex>
-
-				<Flex
+					<Flex
 					direction='column'
 					mt='auto'>
 					<Divider />
@@ -179,6 +178,7 @@ function RFPCard({ grant, chainId, role, onVisibilityUpdate, onSectionGrantsUpda
 						pt={3}
 						pb={5}
 						justifyContent='space-between'
+						gridGap="8%"
 					 >
 						<GridItem>
 							<Flex direction='column'>
@@ -194,7 +194,7 @@ function RFPCard({ grant, chainId, role, onVisibilityUpdate, onSectionGrantsUpda
 											{usdAmount === 0 && <Alert color='accent.royal' />}
 											{
 												usdAmount !== undefined && (
-													<Text fontWeight='500'>
+													<Text whiteSpace='nowrap'fontWeight='500'>
 														$
 														{nFormatter(usdAmount?.toFixed(0), 0)}
 													</Text>
@@ -204,54 +204,59 @@ function RFPCard({ grant, chainId, role, onVisibilityUpdate, onSectionGrantsUpda
 									)
 								}
 								<Text
+								whiteSpace='nowrap'
 									mt={1}
 									variant='body'
-									color='gray.6'>
+									color='gray.600'>
 									{grant?.workspace?.safe === null ? 'No multisig' : usdAmount === undefined ? '' : usdAmount === 0 ? 'in multisig' : 'available'}
 								</Text>
 							</Flex>
 						</GridItem>
+						
 						<GridItem>
 							<Flex direction='column'>
-								<Text fontWeight='500'>
+								<Text whiteSpace='nowrap'fontWeight='500'>
 									{grant?.totalGrantFundingDisbursedUSD === '0' ? '-' : `$${nFormatter(grant?.totalGrantFundingDisbursedUSD, 0)}`}
 								</Text>
 								<Text
 									mt={1}
 									variant='body'
-									color='gray.6'>
+									color='gray.600' whiteSpace='nowrap'>
 									paid out
 								</Text>
 							</Flex>
 						</GridItem>
 						<GridItem>
 							<Flex direction='column'>
-								<Text fontWeight='500'>
+								<Text whiteSpace='nowrap'fontWeight='500'>
 									{grant?.numberOfApplicationsSelected}
 								</Text>
 								<Text
 									mt={1}
 									variant='body'
-									color='gray.6'>
+									color='gray.600'>
 									accepted
 								</Text>
 							</Flex>
 						</GridItem>
 						<GridItem>
 							<Flex direction='column'>
-								<Text fontWeight='500'>
+								<Text whiteSpace='nowrap'fontWeight='500'>
 									{grant?.numberOfApplications}
 								</Text>
 								<Text
 									mt={1}
 									variant='body'
-									color='gray.6'>
+									color='gray.600'>
 									proposals
 								</Text>
 							</Flex>
 						</GridItem>
 					</Grid>
 				</Flex>
+				</Flex>
+
+			
 
 			</Flex>
 		</Box>

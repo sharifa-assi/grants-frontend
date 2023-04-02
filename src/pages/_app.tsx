@@ -656,16 +656,19 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 									<WebwalletContext.Provider value={webwalletContextValue}>
 										<BiconomyContext.Provider value={biconomyDaoObjContextValue}>
 											<SafeProvider>
-												<DAOSearchContextMaker>
-													<GrantsProgramContext.Provider value={grantProgram}>
-														<QBAdminsContextMaker>
-															<ChakraProvider theme={theme}>
-																{getLayout(<Component {...pageProps} />)}
-																<QRCodeModal />
-															</ChakraProvider>
-														</QBAdminsContextMaker>
-													</GrantsProgramContext.Provider>
-												</DAOSearchContextMaker>
+												<>
+													<DAOSearchContextMaker>
+														<GrantsProgramContext.Provider value={grantProgram}>
+															<QBAdminsContextMaker>
+																<ChakraProvider theme={theme}>
+																	{getLayout(<Component {...pageProps} />)}
+																	<QRCodeModal />
+																</ChakraProvider>
+															</QBAdminsContextMaker>
+														</GrantsProgramContext.Provider>
+
+													</DAOSearchContextMaker>
+												</>
 											</SafeProvider>
 										</BiconomyContext.Provider>
 									</WebwalletContext.Provider>
@@ -678,9 +681,9 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 			<ChatWidget
 				token='5b3b08cf-8b27-4d4b-9c4e-2290f53e04f0'
 				inbox='cb5e60c6-dfe5-481d-9dde-3f13e83344cd'
-				title='Welcome to Questbook Support'
+				title='Welcome to Grantor and Grantee'
 				subtitle="Have a question? Please feel free to ask here - we'll respond ASAP, hopefully now!"
-				primaryColor='#1F1F33'
+				primaryColor='#568e67'
 				newMessagePlaceholder='Type your question ...'
 				showAgentAvailability={false}
 				agentAvailableText="We're online right now!"

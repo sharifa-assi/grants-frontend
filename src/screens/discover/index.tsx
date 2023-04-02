@@ -23,6 +23,8 @@ import HeroBanner from 'src/screens/discover/HeroBanner'
 import StatsBanner from 'src/screens/discover/StatsBanner'
 import { Roles } from 'src/types'
 
+
+
 function Discover() {
 	const router = useRouter()
 	const { inviteInfo } = useContext(ApiClientsContext)!
@@ -40,7 +42,7 @@ function Discover() {
 				direction='column'
 				justify='center'
 				align='center'
-				bg='black.1'>
+				bg='black.100'>
 				<Text
 					mt='auto'
 					color='white'
@@ -296,7 +298,7 @@ function Discover() {
 													/>
 													<Divider
 														width='100%'
-														borderColor='gray.3'
+														borderColor='gray.300'
 														mt={8}
 														display={grantsForYou?.length ? '' : 'none'}
 													/>
@@ -305,8 +307,8 @@ function Discover() {
 												<Skeleton
 													width='100%'
 													h='5%'
-													startColor='gray.3'
-													endColor='gray.4'
+													startColor='gray.300'
+													endColor='gray.400'
 												/>
 											) : <Flex />
 									}
@@ -338,26 +340,29 @@ function Discover() {
 															gap={3}
 															alignItems='center'
 															mb={4}
+														><div className='card-program'>
+														<Image
+															src={getUrlForIPFSHash(sectionImage)}
+															boxSize={6} />
+															</div>
+															<div>
+														<Text
+															fontWeight='500'
+															variant='subheading'
 														>
-															<Image
-																src={getUrlForIPFSHash(sectionImage)}
-																boxSize={6} />
-															<Text
-																fontWeight='500'
-																variant='subheading'
-															>
-																{sectionName}
-															</Text>
-															<Text
-																fontSize='14px'
-																color='gray.5'
-																fontWeight='500'
-																ml='-6px'
-															>
-																(
-																{grants.length}
-																)
-															</Text>
+															{sectionName}
+														</Text>
+														<Text
+															fontSize='14px'
+															color='gray.5'
+															fontWeight='500'
+															ml='-6px'
+														>
+															(
+															{grants.length}
+															)
+														</Text>
+														</div>
 														</Flex>
 
 														<RFPGrid

@@ -13,7 +13,6 @@ export default [
 		pii: true
 	},
 	{
-		title: 'Wallet Address',
 		id: 'applicantAddress',
 		inputType: 'short-form',
 		isRequired: true

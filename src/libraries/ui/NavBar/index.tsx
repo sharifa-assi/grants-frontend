@@ -10,13 +10,11 @@ import { ArrowLeft, Pencil, Qb, Settings, ShareForward } from 'src/generated/ico
 import { QBAdminsContext } from 'src/libraries/hooks/QBAdminsContext'
 import useCustomToast from 'src/libraries/hooks/useCustomToast'
 import logger from 'src/libraries/logger'
-import AccountDetails from 'src/libraries/ui/NavBar/_components/AccountDetails'
 import BackupWallet from 'src/libraries/ui/NavBar/_components/BackupWallet'
 import useGoogleDriveWalletRecoveryReact from 'src/libraries/ui/NavBar/_components/googleRecovery'
 import ImportConfirmationModal from 'src/libraries/ui/NavBar/_components/ImportConfirmationModal'
 import NotificationPopover from 'src/libraries/ui/NavBar/_components/NotificationPopover'
 import RestoreWallet from 'src/libraries/ui/NavBar/_components/RestoreWallet'
-import SignIn from 'src/libraries/ui/NavBar/_components/SignIn'
 import UpdateProfileModal from 'src/libraries/ui/NavBar/_components/UpdateProfileModal'
 import { DOMAIN_CACHE_KEY } from 'src/libraries/ui/NavBar/_utils/constants'
 import { getAvatar } from 'src/libraries/utils'
@@ -34,7 +32,7 @@ type Props = {
 	openSignIn?: boolean
 }
 
-function NavBar({ openSignIn, bg = 'gray.1', requestProposal, dashboard }: Props) {
+function NavBar({ openSignIn, bg = 'gray.100', requestProposal, dashboard }: Props) {
 	const { webwallet } = useContext(WebwalletContext)!
 	const { importWebwallet } = useContext(WebwalletContext)!
 
@@ -54,23 +52,12 @@ function NavBar({ openSignIn, bg = 'gray.1', requestProposal, dashboard }: Props
 				bg={bg}
 				ps={[6, 24]}
 				pe={24}
-				backgroundColor={['black.1', 'gray.1']}
+				backgroundColor={['#f1ebe0']}
 				py='16px'
 				minWidth={{ base: '-webkit-fill-available' }}
 				paddingInlineEnd={['35px', '120px']}
 			>
-				<Qb
-					boxSize='10rem'
-					onClick={
-						() => {
-							router.push({
-								pathname: '/'
-							})
-						}
-					}
-					display='inherit'
-					mr='auto'
-					cursor='pointer' />
+				<Image maxW="50px" maxH="100px"  src="/mini-icon.svg" />
 				{
 					isQbAdmin && (
 						<>
@@ -83,7 +70,6 @@ function NavBar({ openSignIn, bg = 'gray.1', requestProposal, dashboard }: Props
 					)
 				}
 				<Spacer />
-
 				{
 					shouldShowTitle && (
 						<Flex
@@ -169,6 +155,7 @@ function NavBar({ openSignIn, bg = 'gray.1', requestProposal, dashboard }: Props
 
 					)
 				}
+				
 
 				<Box ml={4} />
 
@@ -192,7 +179,6 @@ function NavBar({ openSignIn, bg = 'gray.1', requestProposal, dashboard }: Props
 							} />
 					)
 				}
-
 				{
 					(shouldShowTitle && role === 'admin') && (
 						<Settings
@@ -245,16 +231,7 @@ function NavBar({ openSignIn, bg = 'gray.1', requestProposal, dashboard }: Props
 
 				<Spacer />
 
-				<AccountDetails
-					openModal={
-						(type) => {
-							setType(type)
-							setIsRecoveryModalOpen(true)
-						}
-					}
-					setIsUpdateProfileModalOpen={setIsUpdateProfileModalOpen}
-					setSignIn={setSignIn} />
-
+				<Image maxW="50px" maxH="50px"  src="/result.png" />
 			</Container>
 			{/* <RecoveryModal
 				isOpen={isRecoveryModalOpen}
@@ -319,16 +296,7 @@ function NavBar({ openSignIn, bg = 'gray.1', requestProposal, dashboard }: Props
 			<UpdateProfileModal
 				isOpen={isUpdateProfileModalOpen}
 				onClose={() => setIsUpdateProfileModalOpen(false)} />
-			<SignIn
-				isOpen={signIn && !!!webwallet}
-				setSignIn={setSignIn}
-				onClose={() => setSignIn(false)}
-				exportWalletToGD={exportWalletToGD}
-				importWalletFromGD={importWalletFromGD}
-				loading={loading}
-				inited={inited}
-			/>
-
+		
 		</>
 	)
 	const SmallScreensDashboardNavBar = () => (
@@ -353,7 +321,7 @@ function NavBar({ openSignIn, bg = 'gray.1', requestProposal, dashboard }: Props
 				bg={bg}
 				ps={[6, 24]}
 				pe={24}
-				backgroundColor='gray.1'
+				backgroundColor='gray.100'
 				py='16px'
 				minWidth={{ base: '-webkit-fill-available' }}
 			>
@@ -497,26 +465,7 @@ function NavBar({ openSignIn, bg = 'gray.1', requestProposal, dashboard }: Props
 					)
 				}
 			</Container>
-			{/* <RecoveryModal
-				isOpen={isRecoveryModalOpen}
-				onClose={() => setIsRecoveryModalOpen(false)}
-				type={type}
-				privateKey={privateKey}
-				privateKeyError={privateKeyError}
-				onChange={onChange}
-				onImportClick={onImportClick}
-				onSaveAsTextClick={onSaveAsTextClick}
-				onCopyAndSaveManuallyClick={onCopyAndSaveManuallyClick} /> */}
-			<SignIn
-				isOpen={signIn && !!!webwallet}
-				setSignIn={setSignIn}
-				onClose={() => setSignIn(false)}
-				exportWalletToGD={exportWalletToGD}
-				importWalletFromGD={importWalletFromGD}
-				loading={loading}
-				inited={inited}
-			/>
-
+		
 			<ImportConfirmationModal
 				isOpen={isImportConfirmationModalOpen}
 				onClose={() => setImportConfirmationModalOpen(false)}
@@ -676,7 +625,7 @@ NavBar.defaultProps = {
 }
 
 // NavBar.defaultProps = {
-// 	bg: 'gray.1',
+// 	bg: 'gray.100',
 // 	showLogo: false,
 // 	showSearchBar: false,
 // 	showInviteProposals: true,

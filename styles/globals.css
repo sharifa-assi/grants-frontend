@@ -73,14 +73,18 @@ a {
   text-decoration: none;
 }
 
-* {
+* {  background:#f1ebe0 !important;
   box-sizing: border-box;
+ 
 }
-
+.css-x24xy {
+  background-color: green !important;
+}
 .richTextContainer > a {
-  color: #8850EA !important;
+  color: green !important;
   text-decoration: underline !important;
 }
+
 
 .richTextContainer > ul {
   padding-left: 32px
@@ -142,7 +146,7 @@ a {
   /* border: 1px solid #C1BDB7; */
   border-top: none;
   background: #FFFFFF;
-  color: #122224;
+  color: green;
   overflow-y: auto;
   resize: vertical;
 }
@@ -191,7 +195,7 @@ a {
   background: white;
   padding: 4px 8px;
   font-size: 12px;
-  color: #717A7C;
+  color: green;
   line-height: 16px;
   filter: drop-shadow(0px 4px 5px rgba(87, 122, 147, 0.06)) drop-shadow(0px 4px 32px rgba(0, 0, 0, 0.07)) drop-shadow(1px 9px 16px rgba(121, 132, 134, 0.06)) drop-shadow(0px 1px 6px rgba(108, 134, 164, 0.1));
 }
@@ -243,6 +247,26 @@ a {
   .css-y8a1hp {
     max-width: 100% !important;
   }
+  .css-1u3zzgk {
+    background: green !important;
+  }
+  .css-78hr0l{
+    background:#f1ebe0 !important;
+  }
 }
-
+.Papercups-toggleButton{
+  background-color: #568e67 !important;
+}
+.Papercups-toggleButton > svg{
+  background-color: #568e67 !important;
+}
+.css-1ova2fl{
+  color:black !important;
+}
+.css-ifmf66{
+  color: #568e67 !important;
+}
+.css-x4t3su{
+  color: #568e67 !important;
+}
 @keyframes spinner {to{transform:rotate(1turn)}}
